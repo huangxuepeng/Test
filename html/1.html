@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .cont {
+            color: red;
+            text-align: center;
+            font-size: 50px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="cont" id="cont"></div>
+    <script type="text/javascript">
+        var data = [{
+                    "title": "黄",
+                    "data": "2016"
+                }
+
+                , {
+                    "title": "雪",
+                    "data": "2017"
+                }
+
+                , {
+                    "title": "朋",
+                    "data": "2018"
+                }
+
+                , {
+                    "title": "朋",
+                    "data": "2018"
+                }
+
+                , {
+                    "title": "朋",
+                    "data": "2018"
+                }
+
+                ,
+            ] //通过json生成DOM
+        var cont = document.getElementById('cont')
+        var temp = '' //缓存
+        for (var i = 0; i < data.length; i++) {
+            var news = data[i]
+            temp += '<p> \n' + '<span class="index">' + (i + 1) + '</span> \n' + '<a href = "#" > ' + news.title + '</a>\n' + '<span class = "date" > 发布时间: ' + news.data + '</span>\n' + '</p>';
+            // cont.innerHTML += temp
+        }
+
+        console.log(temp);
+        cont.innerHTML = temp //最后渲染一次
+    </script>
+</body>
+
+</html>
