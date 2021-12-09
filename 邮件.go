@@ -150,3 +150,5 @@ func main() {
 	wg.Wait()
 	log.Println("send successfully ... ")
 }
+
+//实现并发发邮件
