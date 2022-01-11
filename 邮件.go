@@ -104,7 +104,7 @@ func main() {
 	log.SetFlags(log.Lshortfile | log.LstdFlags)
 
 	// 创建有5 个缓冲的通道，数据类型是  *email.Email
-	ch := make(chan *email.Email, 5)
+	ch := make(chan *email.Email, 10)
 	// 连接池
 	p, err := email.NewPool(
 		"smtp.qq.com:25",
@@ -133,12 +133,12 @@ func main() {
 		}()
 	}
 
-	for i := 0; i < 5; i++ {
+	for i := 0; i < 10; i++ {
 		e := email.NewEmail()
 		// 设置发送邮件的基本信息
 		e.From = "xx <2695009886@qq.com>"
 		// e.To = []string{"2695009886@qq.com", "3493665801@qq.com", "2081212291@qq.com", "320028161@qq.com", "1598934549@qq.com", "1649336090@qq.com", "447909290@qq.com"}
-		e.To = []string{"1611941024@qq.com"}
+		e.To = []string{"454654634@qq.com"}
 		e.Subject = "嘿嘿"
 		e.Text = []byte("你好, 我是黄雪朋!")
 		ch <- e
