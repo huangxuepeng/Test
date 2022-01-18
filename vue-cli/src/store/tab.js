@@ -1,6 +1,7 @@
 export default {
     state: {
-        isCollapse: false,
+        isCollapse: true,
+        message: "ojsiuj"
     },
     mutations: {
         collapseMenu (state) {

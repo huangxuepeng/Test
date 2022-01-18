@@ -29,7 +29,6 @@
                 </el-card>
             </el-col>
             <el-col :span="16">
-                
             </el-col>
         </el-row>
     </div>

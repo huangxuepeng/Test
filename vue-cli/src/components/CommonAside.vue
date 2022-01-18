@@ -25,10 +25,10 @@
           <i :class="'el-icon-' + item.icon"></i>
           <span slot="title">{{item.lable}}</span>
         </template>
-        <el-menu-item-group>
-          <el-menu-item :index="subItem.path" v-for="(subItem, subIndex) in item.children" :key="subIndex">
-          <i :class="'el-icon-' + subItem.icon"></i>
-          <span slot="title">{{subItem.lable}}</span>
+         <el-menu-item-group>
+          <el-menu-item :index="child.path" v-for="child in item.children" :key="child.path">
+          <i :class="'el-icon-' + child.icon"></i>
+          <span slot="title">{{child.lable}}</span>
           </el-menu-item>
         </el-menu-item-group>
       </el-submenu>
@@ -47,12 +47,11 @@
 export default {
   data() {
     return {
-      isCollapse: false,
       menu: [
         {
           path: "/",
           name: "home",
-          lable: "应用首页",
+          lable: "管理首页",
           icon: "s-home",
           url: "Home/home"
         },
@@ -99,6 +98,9 @@ export default {
     },
     handleClose(key, keyPath) {
       console.log(key, keyPath);
+    },
+    clickMenu(item) {
+      this.$router.push({ name: item.name })
     }
   },
   computed: {

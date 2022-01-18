@@ -1,5 +1,6 @@
 {
   "devDependencies": {
     "babel-plugin-component": "^1.1.1"
-  }
+  },
+  "lint": "eslint --fix --ext .js,.vue src"
 }
