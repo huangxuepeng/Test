@@ -35,6 +35,7 @@
 </template>
 
 <script>
+import { getMenu } from '../../api/data'
     export default {
         data() {
             return {
@@ -84,6 +85,11 @@
                     totalBuy: "总购买"
                 }
             }
+        },
+        mounted() {
+           getMenu().then((res) => {
+               console.log(res)
+           })
         }
     }
 </script>

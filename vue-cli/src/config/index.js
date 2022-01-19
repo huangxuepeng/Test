@@ -1,3 +1,8 @@
 export default {
-    title: ''
-}   
+    title: 'admin',
+    baseUrl: {
+        //开发环境
+        dev: '/api/',
+        pro: ''
+    }
+}

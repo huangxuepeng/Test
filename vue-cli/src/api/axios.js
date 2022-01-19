@@ -1,6 +1,8 @@
 //二次封装
 import axios from 'axios';
-const baseUrl = '/api'
+import config from '../config/index'
+// 设置配置 根据开发 和 生产环境不一样
+const baseUrl = process.env.NODE_ENV === 'development' ? config.baseUrl.dev : config.baseUrl.pro
 
 class httpRequest {
 
@@ -9,13 +11,15 @@ class httpRequest {
   }
   getInsideConfig() {
     const config = {
-      baseUrl: this.baseUrl
+      baseUrl: this.baseUrl,
     }
+    return config
   }
     interceptors(instance) {
         // 添加请求拦截器
    instance.interceptors.request.use(function (config) {
       // 在发送请求之前做些什么
+      console.log('拦截处理请求')
       return config;
     }, function (error) {
       console.log(error)
@@ -25,16 +29,23 @@ class httpRequest {
 
       // 添加响应拦截器
     instance.interceptors.response.use(function (response) {
+      console.log('处理响应')
       // 对响应数据做点什么
       return response;
     }, function (error) {
+      console.log(error);
       // 对响应错误做点什么
-      return Promise.reject(error);
-    });
+      return Promise.reject(error)
+    })
   }
-  request () {
+  request (options) {
+    // 请求
+    // /api/getList    /api/getHome
     const instance = axios.create()
+    options = { ...(this.getInsideConfig), ...options }
     this.interceptors(instance)
-    return instance()
+    return instance(options)
   }
 }
+
+export default new httpRequest(baseUrl)

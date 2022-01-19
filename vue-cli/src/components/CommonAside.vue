@@ -47,6 +47,7 @@
 export default {
   data() {
     return {
+      isCollapse: false,
       menu: [
         {
           path: "/",

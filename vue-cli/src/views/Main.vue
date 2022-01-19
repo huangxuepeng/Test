@@ -6,7 +6,7 @@
     <el-header>
       <common-header></common-header>
     </el-header>
-    <common-tag></common-tag>
+    <!-- <common-tag></common-tag> -->
     <el-main><router-view /></el-main>
   </el-container>
 </el-container>
