@@ -15,7 +15,7 @@ const routes = [{
             component: () => import('@/views/Home/Home.vue')
         },
         {
-            path: '/mall',
+            path: '/list',
             name: 'mall',
             component: () => import('@/views/Mall/Mall')
         },

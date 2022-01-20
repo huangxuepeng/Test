@@ -34,7 +34,7 @@ var routes = [{
       });
     }
   }, {
-    path: '/mall',
+    path: '/list',
     name: 'mall',
     component: function component() {
       return Promise.resolve().then(function () {

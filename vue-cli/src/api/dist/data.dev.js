@@ -11,7 +11,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "d
 
 var getMenu = function getMenu() {
   return _axios["default"].request({
-    url: '/u/v1/user/list',
+    url: 'http://192.168.10.12:8080/u/v1/user/list',
     method: 'get'
   });
 };
