@@ -35,5 +35,6 @@ fmt.Println(mobiles, passwords)
 ```
 这样就可以解决问题.   
 解决了问题我就去请教我哥, 这样改的原理是啥?
-![图片](bcd7c2e81a3b4509f815b9c2b4b8dab.png)
+![图片](bcd7c2e81a3b4509f815b9c2b4b8dab.png)  
+
 然后就直接把问题找出来, 可以一瞬间解决的, 哎...大佬就是大佬呀!
