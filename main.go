@@ -1,15 +1,19 @@
 package main
 
-import "github.com/gin-gonic/gin"
+import (
+	"fmt"
+)
 
+func calc(index string, a, b int) int {
+	ret := a + b
+	fmt.Println(index, a, b, ret)
+	return ret
+}
 func main() {
-	//Default返回一个默认的路由引擎
-	r := gin.Default()
-	r.GET("/ping", func(c *gin.Context) {
-		//输出json结果给调用方
-		c.JSON(200, gin.H{
-			"message": "pong",
-		})
-	})
-	r.Run() // listen and serve on 0.0.0.0:8080
+	a := 1
+	b := 2
+	defer calc("1", a, calc("10", a, b))
+	a = 0
+	defer calc("2", a, calc("20", a, b))
+	b = 1
 }

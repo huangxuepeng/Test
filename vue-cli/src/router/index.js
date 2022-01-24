@@ -1,32 +1,28 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Main from '../views/Main.vue'
+import Login from '../components/Login.vue'
+import Home from '../components/Home.vue'
+import '../assets/css/global.css'
 
 Vue.use(VueRouter)
 
-const routes = [{
+const routes = [
+  {
     path: '/',
-    name: 'Main',
-    component: Main,
-    children: [
-        {
-            path: '/',
-            name: 'home',
-            component: () => import('@/views/Home/Home.vue')
-        },
-        {
-            path: '/list',
-            name: 'mall',
-            component: () => import('@/views/Mall/Mall')
-        },
-        {
-            path: '/user',
-            name: 'user',
-            component: () => import('@/views/User/User')
-        }
-    ]
-}]
+    redirect: '/login'
+  },
+  {
+    path: '/login',
+    component: Login
+  },
+  {
+    path: '/home',
+    component: Home
+  }
+]
+
 const router = new VueRouter({
-    routes
+  routes
 })
+
 export default router
