@@ -66,13 +66,14 @@ export default {
                     return this.$message.error('登录失败')
                 } else {
                     this.$message.success('登录成功')
+                    console.log(res)
+                    // 将登陆成功后的token, 保存到客户端 sessionStorage 中
+                    // 项目中除了登录之外的其他的API接口, 必须在登录之后才能访问
+                    // token只应在当前网站打开期间生效, 所以将token保存在sessionStorage中
+                    window.sessionStorage.setItem('token', res.token)
+                    // 通过函数式编程跳转到后台主页, 路由地址是 /home
+                    this.$router.push('/home')
                 }
-                // 将登陆成功后的token, 保存到客户端 sessionStorage 中
-                // 项目中除了登录之外的其他的API接口, 必须在登录之后才能访问
-                // token只应在当前网站打开期间生效, 所以将token保存在sessionStorage中
-                 window.sessionStorage.setItem('token', res.token)
-                // 通过函数式编程跳转到后台主页, 路由地址是 /home
-               this.$router.push('/home')
             })
         }
     }
