@@ -61,12 +61,12 @@ export default {
             params.append('password', this.loginForm.password)
             this.$refs.loginFormRef.validate(async valid => {
                 if (!valid) return
-                const { data: res } = await this.$http.post('http://localhost:8080/u/v1/user/login', params)
+                const { data: res } = await this.$http.post('/user/login', params)
                 if (res.code !== 200) {
                     return this.$message.error('登录失败')
                 } else {
                     this.$message.success('登录成功')
-                    console.log(res)
+                    // console.log(res)
                     // 将登陆成功后的token, 保存到客户端 sessionStorage 中
                     // 项目中除了登录之外的其他的API接口, 必须在登录之后才能访问
                     // token只应在当前网站打开期间生效, 所以将token保存在sessionStorage中

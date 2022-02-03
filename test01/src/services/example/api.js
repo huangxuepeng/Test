@@ -11,4 +11,4 @@ const API = request();
  * @author : huanghe
  */
 
-export const exampleAPI = (params) => API('GET', '/test', params);
+export const exampleAPI = (params) => API('GET', 'http://localhost:8080/u/v1/user/list', params);
