@@ -26,6 +26,6 @@ func init() {
 	fmt.Println("成功")
 }
 
-func main() {
+// func main() {
 
-}
+// }
