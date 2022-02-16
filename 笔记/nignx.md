@@ -31,3 +31,11 @@ server {
         #location ~ \.php$ {
         #    proxy_pass   http://127.0.0.1;
         #}
+
+        #!/bin/bash -ilex
+echo "更新前端代码"
+rm -rf /data/www/*
+cp -a -f /var/lib/jenkins/workspace/vue-test/. /data/www
+cd /data/www
+npm install
+npm run build

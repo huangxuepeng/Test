@@ -23,7 +23,7 @@ type Person struct {
 	Name string `form:"name" json:"name" binding:"required"`
 }
 
-func removeTopStruct(fileds map[string]string) map[string]string {
+func RemoveTopStruct(fileds map[string]string) map[string]string {
 	rsp := map[string]string{}
 	for filed, err := range fileds {
 		rsp[filed[strings.Index(filed, ".")+1:]] = err
@@ -86,7 +86,7 @@ func cc(c *gin.Context) {
 			})
 		}
 		c.JSON(http.StatusOK, gin.H{
-			"error": removeTopStruct(errs.Translate(trans)),
+			"error": RemoveTopStruct(errs.Translate(trans)),
 		})
 		return
 	}
