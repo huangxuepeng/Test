@@ -6,5 +6,4 @@ func main() {
 	glog.Info("Info")
 	glog.Warning("W")
 	glog.Errorf("Er")
-	fjdjfjdfhdjb
 }
