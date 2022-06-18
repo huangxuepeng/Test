@@ -1,9 +1,9 @@
 package main
 
-import "github.com/golang/glog"
+import "fmt"
 
 func main() {
-	glog.Info("Info")
-	glog.Warning("W")
-	glog.Errorf("Er")
+	fmt.Println("这是1")
+	fmt.Println("这是2")
+	fmt.Println("这是3")
 }
