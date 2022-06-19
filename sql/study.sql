@@ -133,3 +133,20 @@ INSERT into  商品表 values('007', '电冰箱', 4560, 56);
 update 商品表 set 单价 = 280 where 商品名 = '自行车';
 delete from 商品表 where ;
 create view aa as select 编号, 商品名, 单价 * 0.8 from 商品表;
+insert into Card Values('201105', '张三', '软工407');
+update borrow set Rdate = Rdate + 3 where Cno in(Select
+Cno from Card where Class ='网络401');
+Delete from borrow where Quantity = 0;
+Create view zm as select *from Book where Bname = '赵敏';
+select Bno, Bname, Author, Price, Quantity from Book where Bname = '网络编程';
+select Bno, Bname, Author from Book where Bname like '%安全%';
+select Name, Class from Card where Cno in(
+    select Borrow.Cno from Borrow, Book where Book.Bno = Borrow.Bno and Book.Bname = 'llll';
+)
+Select Cno, Count(Bno) as '借书的数量' from Borrow group by Cno having Count(Bno) > 5;
+SELECT Cno, Name, Class from Card where Cno in (
+    Select Cno from Borrow where Rdate < 20190623;
+
+)
+SELECT Card.Cno, Name, Class from Card, Borrow Where Borrow.Cno = Card.Cno AND Rdate < '201999';
+select Cno, Rdate from Borrow, Book where Book.Bno = Borrow.Bno AND Book.Price > 100 order by cno desc;
