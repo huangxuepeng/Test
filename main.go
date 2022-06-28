@@ -7,4 +7,5 @@ func main() {
 	fmt.Println("你好")
 	fmt.Println("ss")
 	fmt.Println("测试hxp")
+	fmt.Println("你在叫什么")
 }
