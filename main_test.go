@@ -1,11 +1,17 @@
 package main
 
 import (
-	"log"
 	"testing"
+
+	"go.uber.org/goleak"
 )
 
-func Test_Sum(t *testing.T) {
-	str := sum("1", "999")
-	log.Println(str)
+// func TestGetData(t *testing.T) {
+// 	defer goleak.VerifyNone(t)
+// 	getData()
+// }
+
+func TestMain(m *testing.M) {
+	goleak.VerifyTestMain(m)
+	// getData()
 }
