@@ -4,6 +4,7 @@ go 1.15
 
 require (
 	github.com/PuerkitoBio/goquery v1.8.0 // indirect
+	github.com/Valiben/gin_unit_test v0.0.0-20181205064931-674aee46d090 // indirect
 	github.com/alibabacloud-go/darabonba-env v1.0.0 // indirect
 	github.com/alibabacloud-go/darabonba-number v1.0.2 // indirect
 	github.com/alibabacloud-go/darabonba-openapi v0.1.16
@@ -18,10 +19,12 @@ require (
 	github.com/go-playground/universal-translator v0.18.0
 	github.com/go-playground/validator v9.31.0+incompatible // indirect
 	github.com/go-playground/validator/v10 v10.11.0
+	github.com/go-redis/redis/v8 v8.11.5 // indirect
 	github.com/go-sql-driver/mysql v1.6.0
 	github.com/golang/glog v1.0.0 // indirect
 	github.com/golang/protobuf v1.5.2 // indirect
 	github.com/gorilla/websocket v1.5.0 // indirect
+	github.com/jasonlvhit/gocron v0.0.1 // indirect
 	github.com/jordan-wright/email v4.0.1-0.20210109023952-943e75fe5223+incompatible
 	github.com/mailru/easyjson v0.7.7 // indirect
 	github.com/mattn/go-isatty v0.0.14 // indirect

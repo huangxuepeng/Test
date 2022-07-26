@@ -150,3 +150,47 @@ SELECT Cno, Name, Class from Card where Cno in (
 )
 SELECT Card.Cno, Name, Class from Card, Borrow Where Borrow.Cno = Card.Cno AND Rdate < '201999';
 select Cno, Rdate from Borrow, Book where Book.Bno = Borrow.Bno AND Book.Price > 100 order by cno desc;
+
+create table score (
+    学号 CHAR(8) primary key,
+    姓名 CHAR(6) not null,
+    SQL float check(sql between 0 and 100),
+    asp float check(asp between 0 and 100),
+    vb float  check(vb between 0 and 100)
+);
+select * from score;
+select 姓名,sql from score order by sql desc;
+select * from score where 姓名 like '王%'; 
+select 学号, 姓名, sql+asp+vb as 总分 from score;
+insert into score values(1005,'赵强', 64, 82, 69);
+update score set vb = 85 where 姓名 = '王英';
+create view xsl as select 学号, 姓名, sql from score;
+select avg(sql), avg(asp), avg(vb) from score;
+delete from score where 姓名 like '王%';
+drop database test;
+
+create table 图书 (
+    书号 VARCHAR(10) primary key,
+    书名 varchar(20) not null,
+    作者 varchar(20) not null,
+    单价 int null,
+    库存量 int default '10'
+);
+insert into 图书 values('','');
+select * from 图书;
+select max(单价) as 单价的最大值 from 图书;
+select * from 图书 where 单价 > 30 and 库存量 < 10;
+select 书号, 书名, 单价*库存量 as 总金额 from 图书;
+update 图书 set 库存量 = 38 from 图书 where 书名 = '多媒体技术';
+create view AA as select 书名, 书号, 单价 from 图书;
+delete from 图书 where 作者 like '张%';
+drop table 图书;
+create procedure xxx as select count(*) from 图书 where 出版社 = '高等教育出版社';
+execute xxx;
+
+select * from 商品;
+select top 2 * from 商品表;   
+select distinct 商品名, 单价 from 商品表;
+select top 1 商品 from 商品表 order by 单价 desc;
+select 商品名, 单价 from 商品表 order by 单价 desc;
+select * from 商品表 where 商品名 like '电%';
