@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+<<<<<<< HEAD
 	"sort"
 )
 
@@ -61,4 +62,68 @@ func sumNum(nums []int) (arr []int) {
 func main() {
 	fmt.Println(maximumSum([]int{11, 3, 2, 1, 3, 2, 2}))
 
+	"log"
+	"time"
+
+	"gorm.io/driver/mysql"
+	"gorm.io/gorm"
+)
+
+// 实现两个数据库的关联, 并且查看数据关联的时候删除的情况
+// user
+type User struct {
+	ID        int            `gorm:"primaryKey"`
+	CreatedAt time.Time      `gorm:"column:create_time"`
+	UpdatedAt time.Time      `gorm:"column:update_time"`
+	DeletedAt gorm.DeletedAt `gorm:"<-:update"`
+	Name      string         `gorm:"column:name;type:varchar(20);comment '姓名'"`
+	Messages  []Message
+}
+
+// 信息表
+type Message struct {
+	Id        int            `gorm:"primaryKey"`
+	CreatedAt time.Time      `gorm:"column:create_time"`
+	UpdatedAt time.Time      `gorm:"column:update_time"`
+	DeletedAt gorm.DeletedAt `gorm:"<-:update"`
+	Data      string         `gorm:"column:data;type:varchar(30) "`
+	UserID    int
+}
+
+var DB *gorm.DB
+
+func init() {
+	dsn := "root:123456@tcp(127.0.0.1:3306)/dbname?charset=utf8mb4&parseTime=True&loc=Local"
+	//全局模式
+	var err error
+	DB, err = gorm.Open(mysql.Open(dsn))
+	if err != nil {
+		log.Println("连接数据库失败")
+	}
+	DB.AutoMigrate(
+		&User{},
+		&Message{},
+	)
+}
+func main() {
+
+	// user, msg := User{
+	// 	Name: "哈哈哈",
+	// },
+	// 	Message{
+	// 		Data:   "这是测试",
+	// 		UserID: 1,
+	// 	}
+	// // 开始实现数据的插入
+	// DB.Create(&user)
+	// DB.Create(&msg)
+	user := &User{
+		ID: 1,
+	}
+	dd := DB.Select("Messages").Delete(&user)
+	if dd.Error != nil {
+		fmt.Println(dd.Error)
+		return
+	}
+>>>>>>> df07758... 测试删除关联数据
 }
