@@ -8,6 +8,12 @@
             "type": "java",
             "name": "Launch App",
             "request": "launch",
+            "mainClass": "com.example.App"
+        },
+        {
+            "type": "java",
+            "name": "Launch App",
+            "request": "launch",
             "mainClass": "App"
         },
         {

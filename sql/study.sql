@@ -115,6 +115,16 @@ create table 图书信息表 (
     库存量 int default '10'
 );
 
+CREATE table student (
+    ID int primary key;
+    name varchar(100) not null;
+    age int not null;
+    From_city varchar(100) not null;
+    Ept_name varchar(100) not null;
+    EU_city varchar(100) not null;
+);
+insert into Student values (1, '黄', 10, '天津', 'ss', 'ii');
+insert into Student values (2, '基本', 12, '长春', 'dd', 'yy');
 insert into 图书信息表 VALUES ('1006', '数据库原理', '王', 25, 20);
 select 书号, 书名, 单价*库存量 as 总金额 from 图书信息表;
 UPDATE 图书信息表 set 库存量 = 38 WHERE 书名 = '数据库原理';

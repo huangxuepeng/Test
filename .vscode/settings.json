@@ -52,5 +52,6 @@
         "c/test/src",
         "c/demo/src/main/java/com/example"
     ],
-    "java.configuration.updateBuildConfiguration": "interactive"
+    "java.configuration.updateBuildConfiguration": "interactive",
+    "C_Cpp.errorSquiggles": "disabled"
 }

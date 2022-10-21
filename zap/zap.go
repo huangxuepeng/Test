@@ -21,7 +21,7 @@ func main() {
 		panic(err)
 	}
 	su := logger.Sugar()
-	defer su.Sync()
+	// defer su.Sync()
 	su.Info("shibai",
 		zap.String("url", "jjj"),
 		zap.Int("attemp", 3),
