@@ -49,8 +49,7 @@
     },
     "compile-hero.disable-compile-files-on-did-save-code": false,
     "java.project.sourcePaths": [
-        "c/test/src",
-        "c/demo/src/main/java/com/example"
+        "java"
     ],
     "java.configuration.updateBuildConfiguration": "interactive",
     "C_Cpp.errorSquiggles": "disabled"
