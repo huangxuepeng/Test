@@ -1,0 +1,71 @@
+{
+    "@/packages/index/router.js": [
+        {
+            "name": "index",
+            "path": "/index",
+            "component": "index",
+            "mata": {
+                "title": "Example-out",
+                "content": {
+                    "description": "主页"
+                }
+            },
+            "redirect": "/index/page_a",
+            "children": [
+                {
+                    "name": "Example-insert",
+                    "path": "page_a",
+                    "component": "pageA",
+                    "redirect": "/index/page_a/01",
+                    "children": [
+                        {
+                            "path": "01",
+                            "component": "getQuery"
+                        },
+                        {
+                            "path": "02",
+                            "component": "timeFormat"
+                        },
+                        {
+                            "path": "03",
+                            "component": "debounceInstruction"
+                        },
+                        {
+                            "path": "04",
+                            "component": "ajaxExample"
+                        },
+                        {
+                            "path": "05",
+                            "component": "storeCom"
+                        },
+                        {
+                            "path": "06",
+                            "component": "pxBorder"
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "@/packages/test/router.js": [
+        {
+            "name": "test",
+            "path": "",
+            "component": "index",
+            "mata": {
+                "title": "Example-out",
+                "content": {
+                    "description": "测试前端配置"
+                }
+            },
+            "redirect": "/testA",
+            "children": [
+                {
+                    "name": "Example-insert",
+                    "path": "/testA",
+                    "component": "testA"
+                }
+            ]
+        }
+    ]
+}

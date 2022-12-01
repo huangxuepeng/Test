@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script src="../jquery-3.5.1.js"></script>
+    
+    <script>
+
+        (function(){
+            $.fn.extend({
+                "changeColor":function(fgcolor,bgcolor){
+                    $(this).mouseover(function () {
+                        $(this).css({"color":fgcolor,"background":bgcolor});
+                    }).mouseout(function () {  
+                        $(this).css({"color":"black","background":"white"});
+                    });
+                    return $(this);
+                }
+            })
+        })(jQuery);
+    </script>
+    <script>
+        $(function () {
+            $("h1").changeColor("red","#F1F1F1")
+        })
+    </script>
+</head>
+<body>
+    <h1>ChangeColor</h1>
+</body>
+</html>

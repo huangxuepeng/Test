@@ -1,0 +1,29 @@
+// 全局样式  底边框  兼容的1px
+.borderPX(@position: border-bottom, @width: 1px, @color: #eaeaec) {
+    position: relative;
+    box-sizing: border-box;
+
+    &::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 200%;
+        height: 200%;
+        @{position}: @width solid @color;
+        -webkit-transform-origin: left top;
+        transform-origin: left top;
+        -webkit-transform: scale(0.5);
+        transform: scale(0.5);
+        pointer-events: none; // 避免被点击的  有点透传的感觉  直接点中下面的元素
+        box-sizing: border-box;
+
+        @media screen and (min-device-pixel-ratio: 3),
+        (-webkit-min-device-pixel-ratio: 3) {
+            width: 300%;
+            height: 300%;
+            -webkit-transform: scale(0.33);
+            transform: scale(0.33);
+        }
+    }
+}
