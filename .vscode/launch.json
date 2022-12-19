@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Launch UsedTradingPlatformApplication",
+            "request": "launch",
+            "mainClass": "com.wsk.UsedTradingPlatformApplication",
+            "projectName": "sk"
+        },
+        {
+            "type": "java",
             "name": "Launch test",
             "request": "launch",
             "mainClass": "test",
