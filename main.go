@@ -1,32 +1,94 @@
+// package main
+
+// import (
+// 	"fmt"
+// 	"math/rand"
+// )
+
+// type Job struct {
+// 	Id     int
+// 	RanNum int
+// }
+
+// type Result struct {
+// 	job *Job
+// 	sum int
+// }
+
+// func main() {
+// 	jobChan, resultChan := make(chan *Job, 128), make(chan *Result, 128)
+
+// 	// 创建工作池
+// 	createPool(10000, jobChan, resultChan)
+
+// 	// 打印协程
+// 	go func(resultChan chan *Result) {
+// 		for result := range resultChan {
+// 			fmt.Printf("id=%d, randNum: %d, result: %d\n", result.job.Id, result.job.RanNum, result.sum)
+// 		}
+// 	}(resultChan)
+
+// 	var id int
+// 	for {
+// 		id++
+// 		r_num := rand.Int()
+// 		job := &Job{
+// 			Id:     id,
+// 			RanNum: r_num,
+// 		}
+// 		jobChan <- job
+// 	}
+// }
+
+// func createPool(num int, jobChan chan *Job, resultChan chan *Result) {
+
+// 	for i := 0; i < num; i++ {
+// 		go func(jobChan chan *Job, resultChan chan *Result) {
+
+// 			// 遍历相加
+// 			for job := range jobChan {
+// 				r_num := job.RanNum
+// 				var sum int
+// 				for r_num != 0 {
+// 					tmp := r_num % 10
+// 					sum += tmp
+// 					r_num /= 10
+// 				}
+// 				r := &Result{
+// 					job: job,
+// 					sum: sum,
+// 				}
+
+// 				// 扔进管道
+// 				resultChan <- r
+// 			}
+
+//			}(jobChan, resultChan)
+//		}
+//	}
 package main
 
 import (
 	"fmt"
-	"reflect"
+	"time"
 )
 
 func main() {
-	arr1, arr2 := []int{1, 2, 3, 4, 5}, []int{1, 2, 3, 4, 5}
-	if !reflect.DeepEqual(arr1, arr2) {
-		fmt.Println("不一样")
-		return
+	ticker := time.NewTicker(1 * time.Second)
+
+	i := 0
+
+	go func() {
+		for {
+			i++
+			fmt.Println(<-ticker.C)
+			for i == 5 {
+				ticker.Stop()
+				fmt.Println("结束")
+			}
+		}
+	}()
+	for {
+
 	}
-	fmt.Println("一样")
 }
-𝓓𝓦晚安心语
-
-	Every atom in your body comes from an exploding star,
-	It's the most poetic thing I've ever known about physics.
-	"You are the stars"
-
-	你身体的每一个原子都来自一颗爆炸了的恒星，
-	是我所知关于物理的最有诗意的事情，
-	“你就是星辰”
-
-ɢᵒᵒᵈ ɴⁱᵍʰᵗ✩
-https://eqzy.ccu.edu.cn/api/records?studentId=S202209300939511241067&minDate=2022-10-30&maxDate=2022-12-03
-eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2NzA5NDExNzUsInVzZXJJZCI6IlUyMDIyMTAxMzEwMzg0MDM2NzQ3MTUifQ.tPB_i78NEzGDvP8bZZXXixpr7rm9jSBp8yjl9_Z0td0 
-eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2NzA5NDExNzUsInVzZXJJZCI6IlUyMDIyMTAxMzEwMzg0MDM2NzQ3MTUifQ.tPB_i78NEzGDvP8bZZXXixpr7rm9jSBp8yjl9_Z0td0
-S202209300939511241067
-S202209300923454365645 
-eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2NzA5NDExNzUsInVzZXJJZCI6IlUyMDIyMTAxMzEwMzg0MDM2NzQ3MTUifQ
