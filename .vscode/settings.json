@@ -45,11 +45,12 @@
         "sstream": "cpp",
         "stdexcept": "cpp",
         "streambuf": "cpp",
-        "typeinfo": "cpp"
+        "typeinfo": "cpp",
+        "string_view": "cpp"
     },
     "compile-hero.disable-compile-files-on-did-save-code": false,
     "java.project.sourcePaths": [
-        "java"
+        ""
     ],
     "java.configuration.updateBuildConfiguration": "interactive",
     "C_Cpp.errorSquiggles": "disabled",
